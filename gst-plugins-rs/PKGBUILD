@@ -31,7 +31,7 @@ build() {
     --prefix="${MINGW_PREFIX}" \
     --auto-features=enabled \
     -D doc=disabled \
-    $_realname-v$pkgver \
+    $_realname-$pkgver \
     build-${MSYSTEM}
 
   meson compile -C build-${MSYSTEM}
@@ -43,5 +43,5 @@ check() {
 
 package() {
   meson install -C build-${MSYSTEM} --destdir="$pkgdir"
-  install -Dm644 $_realname-v$pkgver/LICENSE* -t "$pkgdir/$MINGW_PREFIX"/share/licenses/$_realname/
+  install -Dm644 $_realname-$pkgver/LICENSE* -t "$pkgdir/$MINGW_PREFIX"/share/licenses/$_realname/
 }
