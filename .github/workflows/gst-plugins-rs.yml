@@ -1,0 +1,35 @@
+name: gst-plugins-rs
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+
+  matrix:
+    name: ⬜ Generate list of jobs
+    runs-on: ubuntu-latest
+    outputs:
+      jobs: ${{ steps.matrix.outputs.jobs }}
+    steps:
+    - id: matrix
+      uses: msys2/setup-msys2/matrix@main
+      with:
+        systems: >-
+          mingw32
+          mingw64
+          ucrt64
+          clang32
+          clang64
+          clangarm64
+
+  msys2:
+    needs: matrix
+    uses: msys2/setup-msys2/.github/workflows/PKGBUILD.yml@main
+    with:
+      name: gst-plugins-rs
+      path: examples/pkgbuild
+      matrix: ${{ needs.matrix.outputs.jobs }}
+      test: |
+        echo "No test case provided!"
