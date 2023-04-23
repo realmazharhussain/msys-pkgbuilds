@@ -28,7 +28,7 @@ jobs:
     uses: msys2/setup-msys2/.github/workflows/PKGBUILD.yml@main
     with:
       name: gst-plugins-rs
-      path: examples/pkgbuild
+      path: gst-plugins-rs
       matrix: ${{ needs.matrix.outputs.jobs }}
       test: |
         echo "No test case provided!"
