@@ -1,6 +1,6 @@
 # Maintainer: Mazhar Hussain <realmazharhussain@gmail.com>
 
-_realname=gst-plugings-rs
+_realname=gst-plugins-rs
 pkgbase=mingw-w64-${_realname}
 pkgname=${MINGW_PACKAGE_PREFIX}-${_realname}
 pkgdesc='GStreamer plugins written in Rust (mingw-w64)' 
