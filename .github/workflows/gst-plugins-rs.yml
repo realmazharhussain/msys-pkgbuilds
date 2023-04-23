@@ -22,7 +22,6 @@ jobs:
           ucrt64
           clang32
           clang64
-          clangarm64
 
   msys2:
     needs: matrix
